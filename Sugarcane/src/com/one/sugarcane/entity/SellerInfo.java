@@ -1,5 +1,9 @@
 package com.one.sugarcane.entity;
 
+import java.sql.Timestamp;
+import java.util.Date;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -13,10 +17,10 @@ import org.hibernate.annotations.GenericGenerator;
 public class SellerInfo {
 	private Integer sellerID;
 	private String sellerName;
-	private String sellerEmain;
-	private int sellerPhoneNumber;
+	private String sellerEmail;
+	private String sellerPhoneNumber;
 	private String brief;
-	private int numberOfEmployees;
+	private String numberOfEmployees;
 	private String educationBureauApproved;
 	private String proofOfHouse;
 	private String fireSafetyCertificate;
@@ -27,6 +31,9 @@ public class SellerInfo {
 	private String address_detail;
 	private int qualified;
 	private SellerLogin sellerLogin;
+    private Date validatacode;
+    private Date outdate;
+ 
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -42,16 +49,16 @@ public class SellerInfo {
 	public void setSellerName(String sellerName) {
 		this.sellerName = sellerName;
 	}
-	public String getSellerEmain() {
-		return sellerEmain;
+	public String getSellerEmail() {
+		return sellerEmail;
 	}
-	public void setSellerEmain(String sellerEmain) {
-		this.sellerEmain = sellerEmain;
+	public void setSellerEmail(String sellerEmail) {
+		this.sellerEmail= sellerEmail;
 	}
-	public int getSellerPhoneNumber() {
+	public String getSellerPhoneNumber() {
 		return sellerPhoneNumber;
 	}
-	public void setSellerPhoneNumber(int sellerPhoneNumber) {
+	public void setSellerPhoneNumber(String sellerPhoneNumber) {
 		this.sellerPhoneNumber = sellerPhoneNumber;
 	}
 	public String getBrief() {
@@ -60,10 +67,11 @@ public class SellerInfo {
 	public void setBrief(String brief) {
 		this.brief = brief;
 	}
-	public int getNumberOfEmployees() {
+
+	public String getNumberOfEmployees() {
 		return numberOfEmployees;
 	}
-	public void setNumberOfEmployees(int numberOfEmployees) {
+	public void setNumberOfEmployees(String numberOfEmployees) {
 		this.numberOfEmployees = numberOfEmployees;
 	}
 	public String getEducationBureauApproved() {
@@ -127,13 +135,26 @@ public class SellerInfo {
 	public void setSellerLogin(SellerLogin sellerLogin) {
 		this.sellerLogin = sellerLogin;
 	}
-	public SellerInfo(String sellerName, String sellerEmain, int sellerPhoneNumber, String brief, int numberOfEmployees,
-			String educationBureauApproved, String proofOfHouse, String fireSafetyCertificate, String businessLisense,
-			String address_province, String address_city, String address_area, String address_detail, int qualified,
-			SellerLogin sellerLogin) {
+	    public Date getValidatacode() {
+	    return validatacode;
+	    }
+	    public void setValidatacode(Date secretKey) {
+	    this.validatacode = secretKey;
+	    }
+	    public Date getOutdate() {
+	    return outdate;
+	    }
+	    public void setOutdate(Date outdate) {
+	    this.outdate = outdate;
+	    }
+	public SellerInfo() {}
+	public SellerInfo(String sellerName, String sellerEmail, String sellerPhoneNumber, String brief,
+			String numberOfEmployees, String educationBureauApproved, String proofOfHouse, String fireSafetyCertificate,
+			String businessLisense, String address_province, String address_city, String address_area,
+			String address_detail, int qualified, SellerLogin sellerLogin,Date validatacode,Date outdate) {
 		super();
 		this.sellerName = sellerName;
-		this.sellerEmain = sellerEmain;
+		this.sellerEmail = sellerEmail;
 		this.sellerPhoneNumber = sellerPhoneNumber;
 		this.brief = brief;
 		this.numberOfEmployees = numberOfEmployees;
@@ -147,6 +168,8 @@ public class SellerInfo {
 		this.address_detail = address_detail;
 		this.qualified = qualified;
 		this.sellerLogin = sellerLogin;
+		this.validatacode = validatacode;
+		this.outdate = outdate;
 	}
-	
+
 }

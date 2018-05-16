@@ -19,6 +19,7 @@ public class PublicCourseType {
 	private int hidden;
 	private Set<Course>course = new HashSet<Course>();
 	private Set<QuestionBank>questionBank = new HashSet<QuestionBank>();
+	
 	@Id
 	@GeneratedValue(generator="a")
 	@GenericGenerator(name="a",strategy="identity")
@@ -54,6 +55,7 @@ public class PublicCourseType {
 	public void setQuestionBank(Set<QuestionBank> questionBank) {
 		this.questionBank = questionBank;
 	}
+	public PublicCourseType() {}
 	public PublicCourseType(String publicTypeName, int hidden, Set<Course> course, Set<QuestionBank> questionBank) {
 		super();
 		this.publicTypeName = publicTypeName;
